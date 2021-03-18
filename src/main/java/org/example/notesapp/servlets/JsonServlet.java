@@ -1,4 +1,4 @@
-package org.example.webapp;
+package org.example.notesapp.servlets;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -5,23 +5,23 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>org.example.webapp.MyServlet</servlet-class>
+        <servlet-name>AddAndView</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.ViewAddNotesServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
+        <servlet-name>AddAndView</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>org.example.webapp.MyServlet2</servlet-class>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.DeleteNoteServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 </web-app>
 

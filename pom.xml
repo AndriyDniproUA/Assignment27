@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>webapp</artifactId>
+    <artifactId>notesapp</artifactId>
     <version>01</version>
 
     <properties>
@@ -47,10 +47,26 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.12.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.19</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>4.0.3</version>
+        </dependency>
+
     </dependencies>
 
+
+
+
     <build>
-<!--        <finalName>webapp</finalName>-->
+
 
     </build>
 </project>
