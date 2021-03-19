@@ -12,4 +12,15 @@ import java.util.List;
 @Accessors(chain = true)
 public class NotesResponse {
     private List<Note> notes;
+
+    @Data
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Accessors(chain = true)
+    public static class Note {
+        private Integer id;
+        private String title;
+        private String contents;
+        private String originDateTime;
+    }
+
 }

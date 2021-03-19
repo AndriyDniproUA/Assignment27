@@ -63,10 +63,7 @@
     </dependencies>
 
 
-
-
     <build>
-
-
+        <finalName>notes</finalName>
     </build>
 </project>
