@@ -3,6 +3,7 @@ package org.example.notesapp.servlets;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.example.notesapp.dto.NoteDelete;
 import org.example.notesapp.dto.NoteInput;
 import org.example.notesapp.dto.NotesResponse;
 import org.example.notesapp.entities.Note;
@@ -18,11 +19,8 @@ public class DeleteNoteServlet extends JsonServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
-
-        if (id != null) {
-            int idInt= Integer.valueOf(id);
-            repository.delete(idInt);
-        }
+        NoteDelete noteDelete = readJson(NoteDelete.class, req);
+        repository.delete(noteDelete.getId());
     }
 }
+

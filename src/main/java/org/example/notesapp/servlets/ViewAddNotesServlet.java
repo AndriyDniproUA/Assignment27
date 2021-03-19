@@ -19,6 +19,7 @@ public class ViewAddNotesServlet extends JsonServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         List<Note> notes = repository.getAll();
         NotesResponse response = new NotesResponse().setNotes(notes);
+
         writeJson(response, resp);
     }
 
@@ -26,9 +27,7 @@ public class ViewAddNotesServlet extends JsonServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         NoteInput noteInput = readJson(NoteInput.class, req);
-
         Note note = new Note().setTitle(noteInput.getTitle()).setContents(noteInput.getContents());
-
         repository.add(note);
     }
 }

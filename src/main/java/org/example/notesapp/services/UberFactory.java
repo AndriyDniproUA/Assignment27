@@ -8,12 +8,11 @@ import javax.sql.DataSource;
 
 public class UberFactory {
     private final static UberFactory INSTANCE = new UberFactory();
-    private final NotesRepository repository;
-
     private UberFactory() {
         this.repository = new SqlNotesRepository(jdbcTemplate());
     }
 
+    private final NotesRepository repository;
 
     public static UberFactory instance() {
         return INSTANCE;
@@ -29,6 +28,7 @@ public class UberFactory {
             String password = "1234";
 
             HikariConfig config = new HikariConfig();
+            config.setDriverClassName(org.postgresql.Driver.class.getName());
             config.setJdbcUrl(dsn);
             config.setUsername(user);
             config.setPassword(password);
