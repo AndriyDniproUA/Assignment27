@@ -17,6 +17,14 @@ public class SqlNotesRepository implements NotesRepository{
     }
 
     @Override
+    public Note getSingle(int id) {
+        return jdbc.queryOne("SELECT id,title, contents, origin_date_time FROM notes WHERE id=?" ,
+                new Object[]{id},
+                new BeanPropertyRowMapper<>(Note.class));
+    }
+
+
+    @Override
     public void add(Note n) {
         jdbc.update(
                 "INSERT INTO notes (title, contents) VALUES (?,?)",

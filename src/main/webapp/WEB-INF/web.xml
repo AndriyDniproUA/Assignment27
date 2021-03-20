@@ -5,14 +5,31 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>AddAndView</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.ViewAddNotesServlet</servlet-class>
+        <servlet-name>AddAndViewList</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.ViewNotesListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AddAndView</servlet-name>
+        <servlet-name>AddAndViewList</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>AddAndViewList</servlet-name>
+        <url-pattern>/addnote</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ViewSingleNote</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.ViewSingleNoteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewSingleNote</servlet-name>
+        <url-pattern>/notes/*</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>Delete</servlet-name>

@@ -19,8 +19,9 @@ public class DeleteNoteServlet extends JsonServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        NoteDelete noteDelete = readJson(NoteDelete.class, req);
-        repository.delete(noteDelete.getId());
+        //NoteDelete noteDelete = readJson(NoteDelete.class, req);
+        repository.delete(Integer.valueOf(req.getParameter("id")));
+        resp.sendRedirect(req.getContextPath()+"/");
     }
 }
 
