@@ -19,11 +19,7 @@
 </p>
 <br/>
 
-<form action="<c:url value="/"/>" method="POST">
-    <input type="hidden" >
-    <input type="submit" value="RETURN">
-</form>
-
+<a href="<c:url value="/"/>"> RETURN </a>
 
 </body>
 </html>
