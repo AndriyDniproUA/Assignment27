@@ -3,17 +3,13 @@ package org.example.notesapp.servlets;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.example.notesapp.dto.NoteInput;
-import org.example.notesapp.entities.Note;
 import org.example.notesapp.dto.NotesResponse;
 import org.example.notesapp.services.NotesRepository;
 import org.example.notesapp.services.UberFactory;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ViewNotesListServlet extends JsonServlet {
@@ -36,11 +32,13 @@ public class ViewNotesListServlet extends JsonServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Note note = new Note()
-                .setTitle(req.getParameter("title"))
-                .setContents(req.getParameter("contents"));
-        repository.add(note);
-        resp.sendRedirect(req.getContextPath()+"/");
+        getServletContext().getRequestDispatcher("/WEB-INF/views/add_note.jsp").forward(req, resp);
+
+//        Note note = new Note()
+//                .setTitle(req.getParameter("title"))
+//                .setContents(req.getParameter("contents"));
+//        repository.add(note);
+//        resp.sendRedirect(req.getContextPath()+"/");
 
     }
 }

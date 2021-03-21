@@ -42,13 +42,17 @@
 </table>
 <br/>
 <br/>
-<h2>Enter a new note here</h2>
 
-<form action="<c:url value="/addnote"/>" method="post">
-    Title: <input type="text" name="title"> <br/>
-    Note: <input type="text" name="contents"> <br/>
-    <input type="submit" value="submit">
+<form action="<c:url value="/addnote"/>" method="POST">
+    <input type="hidden" >
+    <input type="submit" value="ADD NEW NOTE">
 </form>
+
+<%--<form action="<c:url value="/addnote"/>" method="post">--%>
+<%--    Title: <input type="text" name="title"> <br/>--%>
+<%--    Note: <input type="text" name="contents"> <br/>--%>
+<%--    <input type="submit" value="submit">--%>
+<%--</form>--%>
 
 </body>
 </html>

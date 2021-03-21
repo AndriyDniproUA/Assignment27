@@ -14,10 +14,22 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>AddNote</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.AddNoteServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>AddAndViewList</servlet-name>
-        <url-pattern>/addnote</url-pattern>
+        <servlet-name>AddNote</servlet-name>
+        <url-pattern>/addnote/add</url-pattern>
     </servlet-mapping>
+
+
+
+
+
+
 
 
     <servlet>

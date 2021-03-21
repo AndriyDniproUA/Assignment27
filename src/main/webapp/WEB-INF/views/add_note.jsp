@@ -9,21 +9,17 @@
 
 <html>
 <head>
-    <title>"${note.title}"</title>
+    <title>Add new note</title>
 </head>
 
 <body>
-<h1>${note.title}</h1>
-<p>
-    ID:${note.id}   ${note.contents}
-</p>
-<br/>
+<h1>Add a new note</h1>
 
-<form action="<c:url value="/"/>" method="POST">
-    <input type="hidden" >
-    <input type="submit" value="RETURN">
+<form action="<c:url value="/addnote/add"/>" method="post">
+    Title: <input type="text" name="title"> <br/>
+    Note: <input type="text" name="contents"> <br/>
+    <input type="submit" value="submit">
 </form>
-
 
 </body>
 </html>
