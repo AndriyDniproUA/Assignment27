@@ -14,8 +14,12 @@
 
 <body>
 <h1>${note.title}</h1>
+
+
 <p>
-    ID:${note.id}   ${note.contents}
+    <b>Date and time of note creation:  </b>${note.originDateTime} <br/>
+    <b>ID:  </b>${note.id}<br/>
+    <b>Note contents:  </b>${note.contents}
 </p>
 <br/>
 

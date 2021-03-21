@@ -15,7 +15,7 @@
 <body>
 <h1>Add a new note</h1>
 
-<form action="<c:url value="/addnote/add"/>" method="post">
+<form action="<c:url value="/addnote/new"/>" method="post">
     Title: <input type="text" name="title"> <br/>
     Note: <input type="text" name="contents"> <br/>
     <input type="submit" value="submit">

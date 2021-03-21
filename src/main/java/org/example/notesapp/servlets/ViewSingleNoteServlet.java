@@ -19,7 +19,7 @@ public class ViewSingleNoteServlet extends JsonServlet {
 
         int start= req.getContextPath().length()+req.getServletPath().length();
         Integer id = Integer.valueOf(req.getRequestURI().substring(start+1));
-
+        System.out.println("ID:"+id);
 
             Note n=  repository.getSingle(Integer.valueOf(id));
             NotesResponse.Note note = new NotesResponse.Note()

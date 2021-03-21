@@ -19,6 +19,7 @@
     <tr>
         <th>ID</th>
         <th>TITLE</th>
+        <th>delete option</th>
     </tr>
 
     <c:forEach var="note" items="${notes}">
@@ -40,6 +41,7 @@
         </tr>
     </c:forEach>
 </table>
+
 <br/>
 <br/>
 

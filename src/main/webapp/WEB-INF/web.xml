@@ -16,21 +16,25 @@
 
 
     <servlet>
+        <servlet-name>AddNoteRedirect</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.AddNoteRedirectServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddNoteRedirect</servlet-name>
+        <url-pattern>/addnote</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
         <servlet-name>AddNote</servlet-name>
         <servlet-class>org.example.notesapp.servlets.AddNoteServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>AddNote</servlet-name>
-        <url-pattern>/addnote/add</url-pattern>
+        <url-pattern>/addnote/new</url-pattern>
     </servlet-mapping>
-
-
-
-
-
-
-
 
     <servlet>
         <servlet-name>ViewSingleNote</servlet-name>

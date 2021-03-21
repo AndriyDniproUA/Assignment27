@@ -30,15 +30,8 @@ public class ViewNotesListServlet extends JsonServlet {
         getServletContext().getRequestDispatcher("/WEB-INF/views/notes_list.jsp").forward(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/WEB-INF/views/add_note.jsp").forward(req, resp);
-
-//        Note note = new Note()
-//                .setTitle(req.getParameter("title"))
-//                .setContents(req.getParameter("contents"));
-//        repository.add(note);
-//        resp.sendRedirect(req.getContextPath()+"/");
-
-    }
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        getServletContext().getRequestDispatcher("/WEB-INF/views/add_note.jsp").forward(req, resp);
+//    }
 }
