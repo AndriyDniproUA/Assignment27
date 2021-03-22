@@ -5,35 +5,13 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>AddAndViewList</servlet-name>
+        <servlet-name>ViewNotesList</servlet-name>
         <servlet-class>org.example.notesapp.servlets.ViewNotesListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AddAndViewList</servlet-name>
+        <servlet-name>ViewNotesList</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>AddNoteRedirect</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.AddNoteRedirectServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AddNoteRedirect</servlet-name>
-        <url-pattern>/addnote</url-pattern>
-    </servlet-mapping>
-
-
-    <servlet>
-        <servlet-name>AddNote</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.AddNoteServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AddNote</servlet-name>
-        <url-pattern>/addnote/new</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -46,14 +24,24 @@
         <url-pattern>/notes/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddNote</servlet-name>
+        <servlet-class>org.example.notesapp.servlets.AddNoteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddNote</servlet-name>
+        <url-pattern>/addnote</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
-        <servlet-name>Delete</servlet-name>
+        <servlet-name>DeleteNote</servlet-name>
         <servlet-class>org.example.notesapp.servlets.DeleteNoteServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Delete</servlet-name>
+        <servlet-name>DeleteNote</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 </web-app>

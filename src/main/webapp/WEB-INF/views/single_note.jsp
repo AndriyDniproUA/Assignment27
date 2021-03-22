@@ -9,12 +9,11 @@
 
 <html>
 <head>
-    <title>"${note.title}"</title>
+    <title>${note.title}</title>
 </head>
 
 <body>
 <h1>${note.title}</h1>
-
 
 <p>
     <b>Date and time of note creation:  </b>${note.originDateTime} <br/>

@@ -25,10 +25,10 @@
     <c:forEach var="note" items="${notes}">
         <tr>
             <td>
-                <a href="<c:url value="/notes/${note.id}"/>">id:${note.id}</a>
+                ${note.id}
             </td>
             <td>
-                    ${note.title}
+                <a href="<c:url value="/notes/${note.id}"/>">${note.title}</a>
             </td>
 
             <td>
@@ -45,16 +45,7 @@
 <br/>
 <br/>
 
-<form action="<c:url value="/addnote"/>" method="POST">
-    <input type="hidden" >
-    <input type="submit" value="ADD NEW NOTE">
-</form>
-
-<%--<form action="<c:url value="/addnote"/>" method="post">--%>
-<%--    Title: <input type="text" name="title"> <br/>--%>
-<%--    Note: <input type="text" name="contents"> <br/>--%>
-<%--    <input type="submit" value="submit">--%>
-<%--</form>--%>
+<a href="<c:url value="/addnote"/>">ADD A NEW NOTE</a>
 
 </body>
 </html>
