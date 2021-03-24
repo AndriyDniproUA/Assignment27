@@ -23,19 +23,28 @@
     </tr>
 
     <c:forEach var="note" items="${notes}">
+
         <tr>
             <td>
-                ${note.id}
+                    ${note.id}
             </td>
             <td>
+
+
+                <c:set var="id" value="${note.id}" scope="request"/>
                 <a href="<c:url value="/notes/${note.id}"/>">${note.title}</a>
+
+<%--                <% request.setAttribute("id", 100);%>--%>
+<%--                <a href="<c:url value="/notes/<%=request.getAttribute("id")%>"/>">${note.title}</a>--%>
+
+
             </td>
 
             <td>
-            <form action="<c:url value="/delete"/>" method="post">
-                <input type="hidden" value="${note.id}" name="id">
-                <input type="submit" value="delete">
-            </form>
+                <form action="<c:url value="/delete"/>" method="post">
+                    <input type="hidden" value="${note.id}" name="id">
+                    <input type="submit" value="delete">
+                </form>
             </td>
 
         </tr>
@@ -45,7 +54,13 @@
 <br/>
 <br/>
 
-<a href="<c:url value="/addnote"/>">ADD A NEW NOTE</a>
+
+<%--<a href="<c:url value="/addnote"/>">ADD A NOTE</a>--%>
+
+<form action="<c:url value="/addnote"/>" method="get">
+    <input type="hidden">
+    <input type="submit" value="ADD NEW NOTE">
+</form>
 
 </body>
 </html>

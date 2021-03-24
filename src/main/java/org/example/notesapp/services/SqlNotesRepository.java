@@ -1,15 +1,30 @@
 package org.example.notesapp.services;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import lombok.RequiredArgsConstructor;
 import org.example.notesapp.entities.Note;
+import org.example.notesapp.infrastructure.annotations.AutoWired;
+import org.example.notesapp.infrastructure.annotations.Component;
 import org.example.notesapp.utils.BeanPropertyRowMapper;
 import org.example.notesapp.utils.JdbcTemplate;
 
+import javax.sql.DataSource;
 import java.util.List;
 
+@Component
 @RequiredArgsConstructor
 public class SqlNotesRepository implements NotesRepository{
-    private final JdbcTemplate jdbc;
+
+    //    private final UberFactory uberFactory;
+//        @AutoWired
+//    UberFactory uberFactory;
+
+//    JdbcTemplate jdbc=uberFactory.instance().getJdbcTemplate();
+
+
+
+    private final JdbcTemplate jdbc=jdbcTemplate();
 
     @Override
     public List<Note> getAll() {
@@ -42,4 +57,22 @@ public class SqlNotesRepository implements NotesRepository{
 
 
     }
+
+    private JdbcTemplate jdbcTemplate(){
+        {String dsn = "jdbc:postgresql://localhost:5432/notes_repository";
+            String user = "postgres";
+            String password = "1234";
+
+            HikariConfig config = new HikariConfig();
+            config.setDriverClassName(org.postgresql.Driver.class.getName());
+            config.setJdbcUrl(dsn);
+            config.setUsername(user);
+            config.setPassword(password);
+            config.setMaximumPoolSize(8);
+            config.setMinimumIdle(4);
+
+            DataSource dataSource = new HikariDataSource(config);
+            return new JdbcTemplate(dataSource);}
+    }
+
 }

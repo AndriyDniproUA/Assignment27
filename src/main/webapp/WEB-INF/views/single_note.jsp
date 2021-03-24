@@ -22,7 +22,11 @@
 </p>
 <br/>
 
-<a href="<c:url value="/"/>"> RETURN </a>
+<form action="<c:url value="/"/>" method="get">
+    <input type="hidden" value="none" name="none">
+    <input type="submit" value="RETURN">
+</form>
+
 
 </body>
 </html>

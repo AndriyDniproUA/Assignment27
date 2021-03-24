@@ -4,46 +4,35 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
     <servlet>
-        <servlet-name>ViewNotesList</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.ViewNotesListServlet</servlet-class>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.example.notesapp.infrastructure.DispatcherServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>ViewNotesList</servlet-name>
+        <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>ViewSingleNote</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.ViewSingleNoteServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ViewSingleNote</servlet-name>
-        <url-pattern>/notes/*</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>AddNote</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.AddNoteServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AddNote</servlet-name>
-        <url-pattern>/addnote</url-pattern>
-    </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>DeleteNote</servlet-name>
-        <servlet-class>org.example.notesapp.servlets.DeleteNoteServlet</servlet-class>
-    </servlet>
 
-    <servlet-mapping>
-        <servlet-name>DeleteNote</servlet-name>
-        <url-pattern>/delete</url-pattern>
-    </servlet-mapping>
+
+<!--    <servlet>-->
+<!--        <servlet-name>ViewSingleNote</servlet-name>-->
+<!--        <servlet-class>org.example.notesapp.servlets.ViewSingleNoteServlet</servlet-class>-->
+<!--    </servlet>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ViewSingleNote</servlet-name>-->
+<!--        <url-pattern>/notes/*</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+
+
+
+
 </web-app>
 
 

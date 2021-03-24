@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-public class JsonServlet extends HttpServlet {
+public class JsonController extends HttpServlet {
     private ObjectMapper mapper = new ObjectMapper();
 
     protected void writeJson(Object o, HttpServletResponse response) throws IOException {
