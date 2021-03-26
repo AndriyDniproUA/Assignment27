@@ -30,13 +30,7 @@
             </td>
             <td>
 
-
-                <c:set var="id" value="${note.id}" scope="request"/>
                 <a href="<c:url value="/notes/${note.id}"/>">${note.title}</a>
-
-<%--                <% request.setAttribute("id", 100);%>--%>
-<%--                <a href="<c:url value="/notes/<%=request.getAttribute("id")%>"/>">${note.title}</a>--%>
-
 
             </td>
 
@@ -55,9 +49,7 @@
 <br/>
 
 
-<%--<a href="<c:url value="/addnote"/>">ADD A NOTE</a>--%>
-
-<form action="<c:url value="/addnote"/>" method="get">
+<form action="<c:url value="/addnote"/>" method="get" novalidate="novalidate" >
     <input type="hidden">
     <input type="submit" value="ADD NEW NOTE">
 </form>

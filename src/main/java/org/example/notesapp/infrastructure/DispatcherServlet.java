@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.example.notesapp.MainController;
 import org.example.notesapp.infrastructure.annotations.*;
 import org.example.notesapp.infrastructure.reflection.PackageScanner;
+import org.example.notesapp.utils.PathMatcher;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -29,26 +30,50 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PathMatcher pathMatcher = new PathMatcher();
+
         for (Class<?> controller : controllers) {
             for (Method m : controller.getDeclaredMethods()) {
                 String address = getUriFromMethod(req, m);
-                if (address==null) continue;
+                if (address == null) continue;
+                String addr = req.getContextPath() + address;
 
-                String addr = req.getContextPath()+address;
+
                 if (addr.equalsIgnoreCase(req.getRequestURI())) {
-                    invokeController(controller,m,req,resp);
+                    //DEBUGGING
+                    System.out.println("Debugging: in static address comparison");
+                    System.out.println("addr:" +addr);
+                    System.out.println("request"+req.getRequestURI());
+
+                    invokeController(controller, m, req, resp);
+                }
+
+                if (!addr.equalsIgnoreCase(req.getRequestURI()) && pathMatcher.match(req.getRequestURI(), addr)) {
+                    //DEBUGGING
+                    System.out.println("Debugging: in pattern address comparison");
+                    System.out.println("addr:" +addr);
+                    System.out.println("request"+req.getRequestURI());
+
+
+                    req.setAttribute("parameters", pathMatcher.getParameters());
+                    invokeController(controller, m, req, resp);
                 }
             }
         }
         resp.setStatus(404);
-        resp.getWriter().write("NOT FOUND!");
-        resp.getWriter().flush();
+        resp.getWriter().
+
+                write("NOT FOUND!");
+        resp.getWriter().
+
+                flush();
+
     }
 
-    private void invokeController (Class controller, Method m, HttpServletRequest req, HttpServletResponse resp ) {
+    private void invokeController(Class controller, Method m, HttpServletRequest req, HttpServletResponse resp) {
         Object instance = context.getBeanByType(controller);
         try {
-            m.invoke(instance,req,resp);
+            m.invoke(instance, req, resp);
             return;
         } catch (IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();

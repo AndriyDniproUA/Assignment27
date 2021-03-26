@@ -25,7 +25,6 @@ public class PackageScanner {
         return result;
     }
 
-
     public List<Class<?>> scanPackage(String packageName) {
         List<Class<?>> result = new ArrayList<>();
         try {

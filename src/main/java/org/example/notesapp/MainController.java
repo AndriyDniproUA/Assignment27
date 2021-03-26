@@ -16,6 +16,7 @@ import org.example.notesapp.servlets.JsonController;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -43,15 +44,13 @@ public class MainController extends JsonController {
 
     @GetMapping("/notes/{id}")
     public void displaySingleNote(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        System.out.println(req.getAttribute("id"));
+        Map<String,String> params = (Map<String, String>)req.getAttribute("parameters");
 
 
+        System.out.println("ID:"+params.get("id"));
+        Integer id = Integer.valueOf(params.get("id"));
 
-        int start= req.getContextPath().length()+req.getServletPath().length();
-        Integer id = Integer.valueOf(req.getRequestURI().substring(start+1));
-        System.out.println("ID:"+id);
-
-            Note n=  repository.getSingle(Integer.valueOf(id));
+        Note n=  repository.getSingle(id);
             NotesResponse.Note note = new NotesResponse.Note()
                     .setId(n.getId())
                     .setTitle(n.getTitle())
@@ -59,7 +58,7 @@ public class MainController extends JsonController {
                     .setOriginDateTime(n.getOriginDateTime().format(DateTimeFormatter.ofPattern("yyyy MM dd hh:mm")));
 
             req.setAttribute("note", note);
-        getServletContext().getRequestDispatcher("/WEB-INF/views/single_note.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/single_note.jsp").forward(req, resp);
     }
 
 
